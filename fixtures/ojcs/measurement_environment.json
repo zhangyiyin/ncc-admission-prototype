@@ -1,0 +1,99 @@
+{
+  "generatedAt": "2026-10-06T15:40:36.618Z",
+  "host": {
+    "os": "Ubuntu 22.04.5 LTS",
+    "kernel": "6.8.0-124-generic",
+    "uname": "Linux redacted-virtualized-host 6.8.0-124-generic #124~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 21:05:19 UTC  x86_64 x86_64 x86_64 GNU/Linux",
+    "architecture": "x86_64",
+    "cpuModel": "Intel(R) Core(TM) i9-10885H CPU @ 2.40GHz",
+    "logicalProcessorsVisible": 4,
+    "lscpuReportedCpus": "4",
+    "threadsPerCore": "1",
+    "coresPerSocket": "4",
+    "sockets": "1",
+    "hypervisorVendor": "KVM",
+    "virtualizationType": "full",
+    "memoryFreeOutputBytes": "total        used        free      shared  buff/cache   available\nMem:      8327450624  1905524736  1451159552    85798912  4970766336  6025449472\nSwap:     2147479552           0  2147479552",
+    "environmentClassification": "virtual machine / virtualized environment"
+  },
+  "tools": {
+    "node": "v22.23.1",
+    "npm": "10.9.8",
+    "hardhat": "3.9.0",
+    "circom": "circom compiler 2.2.3",
+    "snarkjs": "^0.7.6 (project dependency)",
+    "circomlib": "^2.0.5 (project dependency)",
+    "solidity": {
+      "version": "0.8.28",
+      "optimizerEnabled": true,
+      "optimizerRuns": 200,
+      "source": "hardhat.config.ts",
+      "actualBuildVersion": "0.8.28",
+      "actualBuildLongVersion": "0.8.28+commit.7893614a",
+      "buildMetadataSource": "artifacts/build-info/*.json",
+      "buildInfoFilesInspected": [
+        "artifacts/build-info/solc-0_8_28-2efb5a8d16abe00cce7967c361e4631007bd75cd.json",
+        "artifacts/build-info/solc-0_8_28-57a965d8ae688f12f4b35cdaec879aa21d52af40.json",
+        "artifacts/build-info/solc-0_8_28-7bd4899f2d3e94614efeb46dcc4e9159d23d2cd4.json",
+        "artifacts/build-info/solc-0_8_28-a5d0b6955f792655df83dd0c29891c748b725ad0.json",
+        "artifacts/build-info/solc-0_8_28-e1830e49133bcf850cf741adc0071746c096e32f.json",
+        "artifacts/build-info/solc-0_8_28-eb4fd8cd79da693ca8aa9ffe89d3d15602eb5b4c.json",
+        "artifacts/build-info/solc-0_8_28-f6fbc325a23123cc1d9f2dcbdc6fbb112ae7a22a.json"
+      ]
+    }
+  },
+  "zk": {
+    "provingSystem": "Groth16",
+    "curve": "BN254 / alt_bn128"
+  },
+  "localBlockchain": {
+    "runtime": "Hardhat local EVM",
+    "chainId": "31337"
+  },
+  "measurementProtocol": {
+    "warmupRunsPerOperation": 5,
+    "formalRunsPerOperation": 30,
+    "executionOrder": "sequential",
+    "provingTiming": "wall-clock process timing via process.hrtime.bigint(); compile/setup/key generation excluded",
+    "gatewayTiming": "in-process wall-clock timing via process.hrtime.bigint()",
+    "quartileMethod": "Tukey median-of-halves: Q1 is median of lower half and Q3 is median of upper half of sorted formal observations; the overall median is excluded from both halves when n is odd"
+  },
+  "artifacts": {
+    "initInput": {
+      "path": "fixtures/m4/init_input_user_001.json",
+      "sha256": "50594c781b095f940ea390b7f1cb3825ba1243be5795aef53aa9e27cc88e106b"
+    },
+    "updateStep1Input": {
+      "path": "fixtures/m7/update_full_input_step1.json",
+      "sha256": "f1ddc755249573e76e268b98fce098b5776f0a4f00157595be1365497e405075"
+    },
+    "updateStep2Input": {
+      "path": "fixtures/m7/update_full_input_step2.json",
+      "sha256": "6bd78acd721a06786a9e4bdc10baa86141438a93583213ec41c80077abb660fa"
+    },
+    "initWasm": {
+      "path": "run_artifacts/m8/init/InitComplianceState_js/InitComplianceState.wasm",
+      "sha256": "9391b65de6900ba0d865e473956ae688a148ddc21a548fd95e82cb56fbbebb28"
+    },
+    "initZkey": {
+      "path": "run_artifacts/m8/init/InitComplianceState_final.zkey",
+      "sha256": "8b7f959554195e687e58874c6f1c91b9170e6281815c76234fe53ca77d0cb8d7"
+    },
+    "initVkey": {
+      "path": "run_artifacts/m8/init/verification_key.json",
+      "sha256": "796f500ee540ca06ef4f19073225c64be4ab7d75f45457d43bd6b1c96ae9a8bb"
+    },
+    "updateWasm": {
+      "path": "run_artifacts/m8/update/UpdateComplianceStateFull_js/UpdateComplianceStateFull.wasm",
+      "sha256": "afeff95c6cc38054dc6890e76a246df8ccfd3bed425daf61015e2f1d1e3d519c"
+    },
+    "updateZkey": {
+      "path": "run_artifacts/m8/update/UpdateComplianceStateFull_final.zkey",
+      "sha256": "c34ee3b101c1b7e6e95d0c3cfd2bf75486284923c89ea8ac24916b20aa3262c0"
+    },
+    "updateVkey": {
+      "path": "run_artifacts/m8/update/verification_key.json",
+      "sha256": "500c7552d6ef89012265bdc385ddf675c313d9224fdbfd3695e57a3cb27cd74a"
+    }
+  }
+}

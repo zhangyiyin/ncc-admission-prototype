@@ -1,0 +1,24 @@
+{
+  "policies": [
+    {
+      "policyName": "daily_limit_policy",
+      "e": "20260701",
+      "policyID": "1",
+      "gatewayID": "7",
+      "policyVersion": "1",
+      "limit": "50000",
+      "threshold": "30000",
+      "clauseType": "1"
+    },
+    {
+      "policyName": "decoy_policy",
+      "e": "20260701",
+      "policyID": "2",
+      "gatewayID": "7",
+      "policyVersion": "1",
+      "limit": "70000",
+      "threshold": "40000",
+      "clauseType": "1"
+    }
+  ]
+}

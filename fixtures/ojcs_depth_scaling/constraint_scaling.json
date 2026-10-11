@@ -1,0 +1,96 @@
+{
+  "baselineCommit": "2d3d158673fac866eea2f02cdaa73ba5e8d5e989",
+  "experimentName": "uniform membership-depth scaling",
+  "affectedMembershipPaths": [
+    "registration",
+    "status",
+    "policy",
+    "state"
+  ],
+  "stateTreeOnlyScaling": false,
+  "methodology": {
+    "compileR1CSOnly": true,
+    "witnessBenchmark": false,
+    "provingBenchmark": false,
+    "setupOrZkeyGeneration": false,
+    "solidityVerifierGeneration": false,
+    "depths": [
+      8,
+      16,
+      24,
+      32
+    ]
+  },
+  "results": [
+    {
+      "depth": 8,
+      "nonLinearConstraints": 14351,
+      "linearConstraints": 17426,
+      "totalConstraints": 31777,
+      "publicInputs": 10
+    },
+    {
+      "depth": 16,
+      "nonLinearConstraints": 22191,
+      "linearConstraints": 26290,
+      "totalConstraints": 48481,
+      "publicInputs": 10
+    },
+    {
+      "depth": 24,
+      "nonLinearConstraints": 30031,
+      "linearConstraints": 35154,
+      "totalConstraints": 65185,
+      "publicInputs": 10
+    },
+    {
+      "depth": 32,
+      "nonLinearConstraints": 37871,
+      "linearConstraints": 44018,
+      "totalConstraints": 81889,
+      "publicInputs": 10
+    }
+  ],
+  "scaling": {
+    "exactAffineAcrossMeasuredDepths": true,
+    "deltaPer8DepthLevels": {
+      "nonLinearConstraints": [
+        7840,
+        7840,
+        7840
+      ],
+      "linearConstraints": [
+        8864,
+        8864,
+        8864
+      ],
+      "totalConstraints": [
+        16704,
+        16704,
+        16704
+      ]
+    },
+    "perDepthLevel": {
+      "nonLinearConstraints": 980,
+      "linearConstraints": 1108,
+      "totalConstraints": 2088
+    },
+    "formulas": {
+      "nonLinearConstraints": "6511 + 980 * depth",
+      "linearConstraints": "8562 + 1108 * depth",
+      "totalConstraints": "15073 + 2088 * depth"
+    },
+    "publicInputsConstant": 10
+  },
+  "runtimeFeasibility": {
+    "benchmarked": false,
+    "reason": "The current dense off-chain tree builder becomes impractical at depth 24/32; scalable sparse/on-demand witness maintenance is not implemented in the prototype."
+  },
+  "onChainTreeLimitation": {
+    "historicalRoots": "knownRoots retained indefinitely; no expiry/removal path is implemented",
+    "pruningWindowCompaction": false,
+    "capacityFormula": "2^depth",
+    "depth8MaximumCommitments": 256,
+    "nextInsertionAfterDepth8Capacity": "revert TreeFull()"
+  }
+}

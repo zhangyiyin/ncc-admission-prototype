@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "userID": "user_001",
+      "sk_u": "123456789",
+      "regSalt": "900001",
+      "statusSalt": "900002",
+      "statusActive": "1"
+    },
+    {
+      "userID": "user_002",
+      "sk_u": "223456789",
+      "regSalt": "900101",
+      "statusSalt": "900102",
+      "statusActive": "1"
+    },
+    {
+      "userID": "user_003",
+      "sk_u": "323456789",
+      "regSalt": "900201",
+      "statusSalt": "900202",
+      "statusActive": "0"
+    }
+  ]
+}

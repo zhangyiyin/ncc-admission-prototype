@@ -1,0 +1,264 @@
+{
+  "generatedAt": "2026-10-07T12:53:24.547Z",
+  "methodology": {
+    "authoritativeRuntimeDataset": "fixtures/ojcs_runtime_final_parallel/proving_runs.csv",
+    "runtimeEnvironment": "4-vCPU virtualized environment; detailed host/tool inventory remains in fixtures/ojcs/measurement_environment.json",
+    "preconditioningSeconds": 600,
+    "preconditioningOperation": "UpdateComplianceStateFull proof using default-parallel npx snarkjs groth16 prove",
+    "formalRunsPerOperation": 100,
+    "executionOrder": "cyclically interleaved: Init->Update1->Update2, Update1->Update2->Init, Update2->Init->Update1, repeated",
+    "sampleDeletion": "none",
+    "outlierFiltering": "none",
+    "quartileAlgorithm": "Tukey median-of-halves. Sort formal observations; Q1 is the median of the lower half and Q3 the median of the upper half. If n is odd, exclude the overall median from both halves.",
+    "manuscriptRuntimeStatistics": "median + Tukey IQR",
+    "p95Policy": "p95 is retained only in fixtures/ojcs_runtime_final_parallel/measurement_summary.json as a diagnostic artifact; it is not a manuscript-authoritative runtime statistic",
+    "provingTiming": "End-to-end wall-clock timing around each fresh child-process invocation. Witness uses node generate_witness; proof uses default-parallel npx snarkjs groth16 prove; verify uses npx snarkjs groth16 verify. Child startup and corresponding artifact/file I/O are included; circuit compilation, Powers of Tau, Groth16 setup, zkey generation, verifier generation, and deployment are excluded.",
+    "gatewayTiming": "In-process wall-clock timing of the existing gateway digest computation and accepted-record check.",
+    "negativeGatewayCase": "fixtures/m10/gateway_negative_cases/wrong_amount.json"
+  },
+  "proving": {
+    "init": {
+      "witness": {
+        "n": 100,
+        "minMs": 119.000402,
+        "q1Ms": 160.2492145,
+        "medianMs": 171.64433150000002,
+        "q3Ms": 193.0964145,
+        "iqrMs": 32.847200000000015,
+        "maxMs": 237.477503,
+        "meanMs": 177.11026973000008
+      },
+      "prove": {
+        "n": 100,
+        "minMs": 2461.962826,
+        "q1Ms": 2782.2244405,
+        "medianMs": 2851.7347205,
+        "q3Ms": 3109.1899475,
+        "iqrMs": 326.9655069999999,
+        "maxMs": 4018.343401,
+        "meanMs": 2957.2287479799993
+      },
+      "verify": {
+        "n": 100,
+        "minMs": 772.954603,
+        "q1Ms": 867.5567455,
+        "medianMs": 918.2553055,
+        "q3Ms": 1000.543696,
+        "iqrMs": 132.98695049999992,
+        "maxMs": 1285.947445,
+        "meanMs": 941.7981280299998
+      }
+    },
+    "update_step1": {
+      "witness": {
+        "n": 100,
+        "minMs": 169.083944,
+        "q1Ms": 200.278051,
+        "medianMs": 221.09054600000002,
+        "q3Ms": 237.947405,
+        "iqrMs": 37.669354,
+        "maxMs": 356.120846,
+        "meanMs": 222.81059578999998
+      },
+      "prove": {
+        "n": 100,
+        "minMs": 2835.74934,
+        "q1Ms": 3272.341089,
+        "medianMs": 3349.0365030000003,
+        "q3Ms": 3716.2150540000002,
+        "iqrMs": 443.8739650000002,
+        "maxMs": 4934.203651,
+        "meanMs": 3491.50953539
+      },
+      "verify": {
+        "n": 100,
+        "minMs": 799.040434,
+        "q1Ms": 884.436968,
+        "medianMs": 929.16243,
+        "q3Ms": 993.4137145,
+        "iqrMs": 108.97674649999999,
+        "maxMs": 1564.62205,
+        "meanMs": 943.9321892599996
+      }
+    },
+    "update_step2": {
+      "witness": {
+        "n": 100,
+        "minMs": 171.223481,
+        "q1Ms": 200.1162275,
+        "medianMs": 219.496973,
+        "q3Ms": 239.33905299999998,
+        "iqrMs": 39.22282549999997,
+        "maxMs": 562.381849,
+        "meanMs": 228.40685205999992
+      },
+      "prove": {
+        "n": 100,
+        "minMs": 3001.687875,
+        "q1Ms": 3258.1297145,
+        "medianMs": 3370.241432,
+        "q3Ms": 3725.0878975,
+        "iqrMs": 466.9581830000002,
+        "maxMs": 5436.440349,
+        "meanMs": 3519.2825064899994
+      },
+      "verify": {
+        "n": 100,
+        "minMs": 817.59178,
+        "q1Ms": 885.4241895,
+        "medianMs": 928.4667785,
+        "q3Ms": 1011.2900179999999,
+        "iqrMs": 125.8658284999999,
+        "maxMs": 1215.606462,
+        "meanMs": 949.5537347900001
+      }
+    }
+  },
+  "gateway": {
+    "step1": {
+      "digest": {
+        "n": 30,
+        "minMs": 1.077069,
+        "q1Ms": 1.142629,
+        "medianMs": 1.19731,
+        "q3Ms": 1.24609,
+        "iqrMs": 0.103461,
+        "maxMs": 3.709626,
+        "meanMs": 1.279299
+      },
+      "record_check": {
+        "n": 30,
+        "minMs": 0.032101,
+        "q1Ms": 0.033697,
+        "medianMs": 0.034792,
+        "q3Ms": 0.037487,
+        "iqrMs": 0.00379,
+        "maxMs": 0.097809,
+        "meanMs": 0.038296
+      }
+    },
+    "step2": {
+      "digest": {
+        "n": 30,
+        "minMs": 1.090932,
+        "q1Ms": 1.154456,
+        "medianMs": 1.202475,
+        "q3Ms": 1.245856,
+        "iqrMs": 0.0914,
+        "maxMs": 1.644283,
+        "meanMs": 1.213682
+      },
+      "record_check": {
+        "n": 30,
+        "minMs": 0.033094,
+        "q1Ms": 0.034363,
+        "medianMs": 0.034996,
+        "q3Ms": 0.03805,
+        "iqrMs": 0.003687,
+        "maxMs": 0.064818,
+        "meanMs": 0.037571
+      }
+    },
+    "negative_wrong_amount": {
+      "digest": {
+        "n": 30,
+        "minMs": 1.149013,
+        "q1Ms": 1.211166,
+        "medianMs": 1.242672,
+        "q3Ms": 1.342255,
+        "iqrMs": 0.131089,
+        "maxMs": 1.750583,
+        "meanMs": 1.287255
+      },
+      "record_check": {
+        "n": 30,
+        "minMs": 0.034064,
+        "q1Ms": 0.036116,
+        "medianMs": 0.037442,
+        "q3Ms": 0.039401,
+        "iqrMs": 0.003285,
+        "maxMs": 0.096513,
+        "meanMs": 0.040565
+      }
+    }
+  },
+  "gasSource": {
+    "path": "fixtures/m12/contract_gas.json",
+    "note": "Existing local Hardhat gas measurements are reused because the released artifact preserves the circuit, generated verifier, admission contract, and public-input order used for the reported gas experiment.",
+    "data": {
+      "generatedAt": "2026-07-02T13:24:00.107Z",
+      "network": "Hardhat local EVM",
+      "note": "Admission transaction gas includes verifier call, root checks, nullifier checks, state tree append, and storage writes. verifyProof estimates are shown only for breakdown intuition.",
+      "deployments": {
+        "PoseidonT3": {
+          "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          "gasUsed": "2157126"
+        },
+        "InitComplianceStateVerifier": {
+          "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+          "gasUsed": "445989"
+        },
+        "UpdateComplianceStateVerifier": {
+          "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+          "gasUsed": "527184"
+        },
+        "RootRegistry": {
+          "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+          "gasUsed": "284519"
+        },
+        "ComplianceAdmission": {
+          "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+          "gasUsed": "1721833"
+        }
+      },
+      "transactions": {
+        "initializeState": {
+          "label": "initializeState",
+          "gasUsed": "758308",
+          "transactionHash": "0xfe7d7180de8d0d12663fce90c8c1a3e5c5f729ee1f0de7f74613aa54d6d0e24a"
+        },
+        "updateStateStep1": {
+          "label": "updateState step1",
+          "gasUsed": "899250",
+          "transactionHash": "0x8aaa23b1c86d4dbdbaceb852b068cf19003e7fa2fc376a4b718951226a3a7d55"
+        },
+        "updateStateStep2": {
+          "label": "updateState step2",
+          "gasUsed": "899262",
+          "transactionHash": "0xfb7f9775d5d0f7bac8bbf65c46df0d77844b1de6c268a50f710a31d2e71193b7"
+        }
+      },
+      "verifierEstimates": {
+        "init": {
+          "label": "init verifier verifyProof",
+          "gas": "250389"
+        },
+        "updateStep1": {
+          "label": "update verifier verifyProof step1",
+          "gas": "279001"
+        },
+        "updateStep2": {
+          "label": "update verifier verifyProof step2",
+          "gas": "279013"
+        }
+      }
+    }
+  },
+  "environmentPath": "fixtures/ojcs/measurement_environment.json",
+  "runtimeAuthority": {
+    "implementationCommit": "b7ccdfef1ec7150616e365bbbe109eaedfc190c2",
+    "authoritativeDataset": "fixtures/ojcs_runtime_final_parallel/proving_runs.csv",
+    "authoritativeSummary": "fixtures/ojcs_runtime_final_parallel/measurement_summary.json",
+    "authoritativeReport": "docs/OJCS_RUNTIME_FINAL_PARALLEL_REPORT.md",
+    "environment": "4 visible processors / 4-vCPU virtualized environment",
+    "preconditioning": "fixed 10-minute sustained default-parallel proving",
+    "formalRoundsPerOperation": 100,
+    "schedule": "cyclically interleaved Init / Update1 / Update2",
+    "proofExecution": "default npx snarkjs groth16 prove parallel execution",
+    "sampleDeletion": false,
+    "outlierFiltering": false,
+    "manuscriptStatistics": "median + Tukey IQR",
+    "p95": "diagnostic artifact only",
+    "measurementHistoryPolicy": "Earlier exploratory and diagnostic measurements were used only to refine the measurement methodology and are not part of the manuscript-authoritative runtime dataset."
+  }
+}

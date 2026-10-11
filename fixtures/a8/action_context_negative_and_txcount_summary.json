@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-07-09T18:15:28.491Z",
+  "status": "pass",
+  "gatewayActionContextNegativeCases": {
+    "caseCount": 11,
+    "required": [
+      "wrong_amount",
+      "wrong_rAmt",
+      "wrong_nonce",
+      "wrong_receiverDigest",
+      "wrong_contractAddr",
+      "wrong_chainID",
+      "wrong_category",
+      "wrong_policyID",
+      "wrong_gatewayID",
+      "wrong_rho",
+      "unaccepted_rho"
+    ],
+    "isolatedCases": {
+      "wrong_category": {
+        "changedField": "execution.category",
+        "expectedRejectionPoint": "gateway-side accepted-record matching",
+        "expectedMismatch": "actionHash mismatch"
+      },
+      "wrong_policyID": {
+        "changedField": "scope.policyID",
+        "expectedRejectionPoint": "gateway-side accepted-record matching",
+        "expectedMismatch": "amountCom mismatch, actionHash mismatch, or both, depending on the hash dependency path"
+      },
+      "wrong_gatewayID": {
+        "changedField": "scope.gatewayID",
+        "expectedRejectionPoint": "gateway-side accepted-record matching",
+        "expectedMismatch": "amountCom mismatch, actionHash mismatch, or both, depending on the hash dependency path"
+      }
+    },
+    "negativeResultsAvailable": true
+  },
+  "txCountAssertion": {
+    "genesis": {
+      "stateLabel": "C_gen",
+      "txCount": "0"
+    },
+    "acceptedStep1": {
+      "transition": "0 -> 18000",
+      "txCountOld": "0",
+      "txCountNew": "1",
+      "acceptedByAdmission": true,
+      "acceptedByGateway": true
+    },
+    "acceptedStep2": {
+      "transition": "18000 -> 36000",
+      "txCountOld": "1",
+      "txCountNew": "2",
+      "acceptedByAdmission": true,
+      "acceptedByGateway": true
+    },
+    "rejectedCandidateStep3": {
+      "transition": "36000 -> 54000",
+      "txCountOld": "2",
+      "txCountNew": "3",
+      "acceptedByAdmission": false,
+      "gatewayExecuted": false,
+      "note": "The candidate input shows the next txCount value, but the over-limit transition is rejected and is not accepted as a state update."
+    }
+  },
+  "boundaries": {
+    "circuitsModified": false,
+    "verifierContractsModified": false,
+    "complianceAdmissionModified": false,
+    "rootRegistryModified": false,
+    "batchAnchorModified": false,
+    "hashFormulaModified": false,
+    "rejectionLayerForNewGatewayCases": "gateway-side accepted-record matching"
+  }
+}

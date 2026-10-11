@@ -1,0 +1,32 @@
+{
+  "startTimestamp": "2026-10-07T20:21:00.647255+08:00",
+  "endTimestamp": "2026-10-07T20:31:00.664317+08:00",
+  "targetSeconds": 600.0,
+  "actualSeconds": 600.0170609230004,
+  "completedProofs": 204,
+  "finalProofInterruptedAtFixedDeadline": true,
+  "mode": "default-parallel npx snarkjs groth16 prove",
+  "startSystem": {
+    "timestamp": "2026-10-07T20:21:00.647591+08:00",
+    "load1": 0.12,
+    "load5": 0.05,
+    "load15": 0.19,
+    "runnableProcesses": 1,
+    "totalProcesses": 526,
+    "memAvailableKiB": 6701252,
+    "memFreeKiB": 5154356,
+    "cpuMHzMean": 2400.002
+  },
+  "endSystem": {
+    "timestamp": "2026-10-07T20:31:00.664940+08:00",
+    "load1": 2.59,
+    "load5": 2.4,
+    "load15": 1.46,
+    "runnableProcesses": 3,
+    "totalProcesses": 532,
+    "memAvailableKiB": 6433156,
+    "memFreeKiB": 4883868,
+    "cpuMHzMean": 2400.002
+  },
+  "systemSampleIntervalSeconds": 60.0
+}

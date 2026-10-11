@@ -1,0 +1,66 @@
+# Node / Hardhat
+node_modules/
+artifacts/
+cache/
+
+# Generated circuit/proving artifacts
+build/
+run_artifacts/
+diagnostics/
+*.r1cs
+*.wasm
+*.wtns
+*.zkey
+*.ptau
+
+# Runtime / diagnostic outputs
+*.log
+runtime_rerun/
+singlethread*/
+__pycache__/
+*.pyc
+
+# Local secrets and environment
+.env
+.env.*
+!.env.example
+
+# Archives
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Setup-dependent M9 proof-call fixtures; regenerate from current M8 proofs
+fixtures/m9/init_call.json
+fixtures/m9/update_step1_call.json
+fixtures/m9/update_step2_call.json
+
+# Generated compatibility outputs for unchanged regression tests
+docs/M1_*.md
+docs/M2_*.md
+docs/M3_*.md
+docs/M4_*.md
+docs/M5_*.md
+docs/M6_*.md
+docs/M7_*.md
+docs/M8_*.md
+docs/M9_*.md
+docs/A8_ACTION_CONTEXT_NEGATIVE_AND_TXCOUNT_REPORT.md
+docs/M10_*_SPEC.md
+docs/M11_*_SPEC.md
+docs/M12_*.md
+docs/BATCH_SUMMARY_SCHEMA.md
+docs/ANCHORING_COST_ESTIMATE.md
+docs/ANCHORING_TEST_REPORT.md
+fixtures/m12/*
+!fixtures/m12/contract_gas.json

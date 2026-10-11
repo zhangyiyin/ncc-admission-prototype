@@ -1,0 +1,113 @@
+{
+  "status": "pass",
+  "caseCount": 11,
+  "required": [
+    "wrong_amount",
+    "wrong_rAmt",
+    "wrong_nonce",
+    "wrong_receiverDigest",
+    "wrong_contractAddr",
+    "wrong_chainID",
+    "wrong_category",
+    "wrong_policyID",
+    "wrong_gatewayID",
+    "wrong_rho",
+    "unaccepted_rho"
+  ],
+  "cases": {
+    "unaccepted_rho": {
+      "accepted": false,
+      "failures": [
+        "recordExists",
+        "rhoMatches",
+        "amountComMatches",
+        "actionHashMatches",
+        "clauseComMatches",
+        "cNewMatches",
+        "nOldMatches",
+        "rtStateMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    },
+    "wrong_amount": {
+      "accepted": false,
+      "failures": [
+        "amountComMatches",
+        "actionHashMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    },
+    "wrong_category": {
+      "accepted": false,
+      "failures": [
+        "actionHashMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    },
+    "wrong_chainID": {
+      "accepted": false,
+      "failures": [
+        "actionHashMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    },
+    "wrong_contractAddr": {
+      "accepted": false,
+      "failures": [
+        "actionHashMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    },
+    "wrong_gatewayID": {
+      "accepted": false,
+      "failures": [
+        "amountComMatches",
+        "actionHashMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    },
+    "wrong_nonce": {
+      "accepted": false,
+      "failures": [
+        "amountComMatches",
+        "actionHashMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    },
+    "wrong_policyID": {
+      "accepted": false,
+      "failures": [
+        "amountComMatches",
+        "actionHashMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    },
+    "wrong_rAmt": {
+      "accepted": false,
+      "failures": [
+        "amountComMatches",
+        "actionHashMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    },
+    "wrong_receiverDigest": {
+      "accepted": false,
+      "failures": [
+        "actionHashMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    },
+    "wrong_rho": {
+      "accepted": false,
+      "failures": [
+        "amountComMatches",
+        "actionHashMatches",
+        "clauseComMatches",
+        "cNewMatches",
+        "nOldMatches",
+        "rtStateMatches"
+      ],
+      "rejectionPoint": "gateway-side accepted-record matching"
+    }
+  }
+}

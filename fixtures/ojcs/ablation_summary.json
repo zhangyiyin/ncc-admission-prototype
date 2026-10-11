@@ -1,0 +1,149 @@
+{
+  "generatedAt": "2026-10-06T16:39:40.463Z",
+  "warmupRuns": 5,
+  "formalRuns": 30,
+  "transition": "step2: 18000 -> 36000",
+  "quartileAlgorithm": "Tukey median-of-halves; Q1/Q3 are medians of lower/upper halves of sorted formal observations.",
+  "variants": {
+    "Basic": {
+      "circuit": "circuits/update_compliance_state/UpdateComplianceStateBasic.circom",
+      "input": "fixtures/m5/update_basic_input_step2.json",
+      "metrics": {
+        "nonLinearConstraints": 12328,
+        "linearConstraints": 14816,
+        "totalConstraints": 27144,
+        "publicInputs": 7,
+        "privateInputs": 89,
+        "wires": 27184,
+        "labels": 41392
+      },
+      "timing": {
+        "witness": {
+          "n": 30,
+          "minMs": 198.182389,
+          "q1Ms": 226.857111,
+          "medianMs": 258.223824,
+          "q3Ms": 288.789143,
+          "iqrMs": 61.932032,
+          "maxMs": 447.866158,
+          "meanMs": 266.546445
+        },
+        "prove": {
+          "n": 30,
+          "minMs": 3742.735028,
+          "q1Ms": 4113.810598,
+          "medianMs": 4310.675606,
+          "q3Ms": 4684.288207,
+          "iqrMs": 570.477609,
+          "maxMs": 8171.70179,
+          "meanMs": 4524.878941
+        },
+        "verify": {
+          "n": 30,
+          "minMs": 1019.364382,
+          "q1Ms": 1133.640224,
+          "medianMs": 1183.070411,
+          "q3Ms": 1252.084377,
+          "iqrMs": 118.444153,
+          "maxMs": 1557.996471,
+          "meanMs": 1203.337046
+        }
+      }
+    },
+    "Action": {
+      "circuit": "circuits/update_compliance_state/UpdateComplianceStateAction.circom",
+      "input": "fixtures/m6/update_action_input_step2.json",
+      "metrics": {
+        "nonLinearConstraints": 13565,
+        "linearConstraints": 16376,
+        "totalConstraints": 29941,
+        "publicInputs": 10,
+        "privateInputs": 93,
+        "wires": 29983,
+        "labels": 45783
+      },
+      "timing": {
+        "witness": {
+          "n": 30,
+          "minMs": 240.196163,
+          "q1Ms": 268.792172,
+          "medianMs": 284.912454,
+          "q3Ms": 307.28859,
+          "iqrMs": 38.496418,
+          "maxMs": 342.830127,
+          "meanMs": 286.024512
+        },
+        "prove": {
+          "n": 30,
+          "minMs": 3940.80396,
+          "q1Ms": 4144.22363,
+          "medianMs": 4230.65469,
+          "q3Ms": 4505.700578,
+          "iqrMs": 361.476948,
+          "maxMs": 5771.068905,
+          "meanMs": 4373.01887
+        },
+        "verify": {
+          "n": 30,
+          "minMs": 1038.314473,
+          "q1Ms": 1128.424905,
+          "medianMs": 1197.686794,
+          "q3Ms": 1235.521078,
+          "iqrMs": 107.096173,
+          "maxMs": 1379.939642,
+          "meanMs": 1190.297252
+        }
+      }
+    },
+    "Full": {
+      "circuit": "circuits/update_compliance_state/UpdateComplianceStateFull.circom",
+      "input": "fixtures/m7/update_full_input_step2.json",
+      "metrics": {
+        "nonLinearConstraints": 14351,
+        "linearConstraints": 17426,
+        "totalConstraints": 31777,
+        "publicInputs": 10,
+        "privateInputs": 96,
+        "wires": 31818,
+        "labels": 48688
+      },
+      "timing": {
+        "witness": {
+          "n": 30,
+          "minMs": 222.596394,
+          "q1Ms": 260.384454,
+          "medianMs": 298.245847,
+          "q3Ms": 335.507805,
+          "iqrMs": 75.123351,
+          "maxMs": 523.769595,
+          "meanMs": 305.863327
+        },
+        "prove": {
+          "n": 30,
+          "minMs": 3753.315439,
+          "q1Ms": 4240.459749,
+          "medianMs": 4393.062164,
+          "q3Ms": 4584.021314,
+          "iqrMs": 343.561565,
+          "maxMs": 5429.638116,
+          "meanMs": 4450.633439
+        },
+        "verify": {
+          "n": 30,
+          "minMs": 994.840669,
+          "q1Ms": 1114.614259,
+          "medianMs": 1182.130106,
+          "q3Ms": 1223.657712,
+          "iqrMs": 109.043453,
+          "maxMs": 1631.048688,
+          "meanMs": 1189.991172
+        }
+      }
+    }
+  },
+  "metricsCorrection": {
+    "correctedAt": "2026-10-06T16:52:16.289Z",
+    "reason": "The first ablation parser used an unanchored /linear constraints/ regex, which matched the substring inside 'non-linear constraints'. Metrics were reparsed from the preserved isolated circom compile logs with anchored line regexes. Timing observations were not rerun or modified.",
+    "source": "run_artifacts/ojcs/ablation/<variant>/logs/compile.log"
+  }
+}

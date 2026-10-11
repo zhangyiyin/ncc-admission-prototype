@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "scope": "L2 real-time admission with L1 batch anchoring",
+  "commits": {
+    "m12": "f910bb1",
+    "a0": "e15497b",
+    "a1": "728aade",
+    "a2": "551d7dd",
+    "a3": "2a34843",
+    "a4": "60df175",
+    "a5": "dd4fca8",
+    "a6": "db72e32"
+  },
+  "architecture": {
+    "canonicalAdmissionLayer": "L2/appchain",
+    "l1Role": "batch summary anchoring only",
+    "gatewayBasis": "L2 accepted rho plus gateway private package check",
+    "l1AnchorDoesNotReplaceAdmission": true,
+    "notBatchValidityProof": true,
+    "noRecursiveProofAggregation": true
+  },
+  "demoBatch": {
+    "count": "3",
+    "records": [
+      "init",
+      "update_step1",
+      "update_step2"
+    ],
+    "rejectedStep3Included": false,
+    "batchDigest": "12757940102241886442523519944768779968832577997391259206706178581984833667310",
+    "batchAnchorSubmitGas": "738327"
+  },
+  "cost": {
+    "l1UpdateAverageGas": "899256",
+    "l1PerUpdateAdmissionUsd": "40.466520",
+    "l1PerUpdateAdmissionCny": "291.358944",
+    "batchSizes": [
+      10,
+      100,
+      1000
+    ],
+    "parameterizedEstimate": true
+  },
+  "tests": {
+    "hardhatTest": "68 passing",
+    "checkAnchoringOutputs": "pass",
+    "batchAnchorMocha": "7 passing",
+    "batchSummaryMocha": "6 passing"
+  },
+  "privacy": {
+    "forbiddenFieldsExcluded": true,
+    "containsPlainAmount": false,
+    "containsOwner": false,
+    "containsOldStateCommitment": false,
+    "containsUsedAmount": false,
+    "containsMerklePaths": false,
+    "containsUserLevelTag": false
+  }
+}

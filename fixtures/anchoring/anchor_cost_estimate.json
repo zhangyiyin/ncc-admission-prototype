@@ -1,0 +1,76 @@
+{
+  "status": "pass",
+  "note": "Illustrative parameterized estimate, not real-time market pricing.",
+  "inputs": {
+    "ethUsd": "3000",
+    "usdCny": "7.2",
+    "l1Gwei": "15",
+    "l2UpdateUsdLow": "0.001",
+    "l2UpdateUsdHigh": "0.05",
+    "batchSizes": [
+      10,
+      100,
+      1000
+    ]
+  },
+  "sourceGas": {
+    "l1UpdateStep1Gas": "899250",
+    "l1UpdateStep2Gas": "899262",
+    "l1UpdateAverageGas": "899256",
+    "l1AnchorGas": "738327"
+  },
+  "costs": {
+    "l1PerUpdateAdmission": {
+      "usd": "40.466520",
+      "cny": "291.358944"
+    },
+    "l2PerUpdateAdmission": {
+      "lowUsd": "0.001000",
+      "highUsd": "0.050000",
+      "lowCny": "0.007200",
+      "highCny": "0.360000"
+    },
+    "l1AnchorTotal": {
+      "usd": "33.224715",
+      "cny": "239.217948"
+    },
+    "l2PlusL1Anchoring": [
+      {
+        "batchSize": 10,
+        "anchorUsdPerUpdate": "3.322472",
+        "lowUsd": "3.323472",
+        "highUsd": "3.372472",
+        "lowCny": "23.928995",
+        "highCny": "24.281795"
+      },
+      {
+        "batchSize": 100,
+        "anchorUsdPerUpdate": "0.332247",
+        "lowUsd": "0.333247",
+        "highUsd": "0.382247",
+        "lowCny": "2.399379",
+        "highCny": "2.752179"
+      },
+      {
+        "batchSize": 1000,
+        "anchorUsdPerUpdate": "0.033225",
+        "lowUsd": "0.034225",
+        "highUsd": "0.083225",
+        "lowCny": "0.246418",
+        "highCny": "0.599218"
+      }
+    ]
+  },
+  "validation": {
+    "demoBatchCount": "3",
+    "anchorReceiptStatus": "pass",
+    "receiptBatchDigestEqualsSummaryBatchDigest": true
+  },
+  "interpretation": {
+    "l1AnchorDoesNotReplaceAdmission": true,
+    "l2AdmissionStillPerUpdate": true,
+    "notBatchValidityProof": true,
+    "noRecursiveProofAggregation": true,
+    "parametersAreIllustrative": true
+  }
+}

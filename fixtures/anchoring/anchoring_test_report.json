@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "scope": "L2-A6 anchoring tests and privacy regression checks",
+  "commits": {
+    "a2": "551d7dd",
+    "a3": "2a34843",
+    "a4": "60df175",
+    "a5": "dd4fca8"
+  },
+  "tests": {
+    "batchAnchorMocha": "pass",
+    "batchSummaryMocha": "pass",
+    "checkAnchoringOutputs": "pass",
+    "checkBatchSummarySchemaWithFixture": "pass",
+    "checkBatchAnchorContract": "pass",
+    "estimateAnchorCosts": "pass",
+    "hardhatTest": "pass"
+  },
+  "privacy": {
+    "forbiddenFieldsExcluded": true,
+    "containsPlainAmount": false,
+    "containsOwner": false,
+    "containsOldStateCommitment": false,
+    "containsUsedAmount": false,
+    "containsMerklePaths": false,
+    "containsUserLevelTag": false
+  },
+  "interpretation": {
+    "l1AnchorDoesNotReplaceAdmission": true,
+    "l2AdmissionStillPerUpdate": true,
+    "notBatchValidityProof": true,
+    "noRecursiveProofAggregation": true
+  }
+}

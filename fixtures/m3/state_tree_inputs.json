@@ -1,0 +1,30 @@
+{
+  "depth": 8,
+  "userID": "user_001",
+  "leaves": [
+    {
+      "label": "C_gen",
+      "usedAmount": "0",
+      "txCount": "0",
+      "riskLevel": "0",
+      "flags": "0",
+      "r": "800001"
+    },
+    {
+      "label": "C_after_18000",
+      "usedAmount": "18000",
+      "txCount": "1",
+      "riskLevel": "0",
+      "flags": "0",
+      "r": "800002"
+    },
+    {
+      "label": "C_after_36000",
+      "usedAmount": "36000",
+      "txCount": "2",
+      "riskLevel": "0",
+      "flags": "0",
+      "r": "800003"
+    }
+  ]
+}

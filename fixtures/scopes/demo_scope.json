@@ -1,0 +1,10 @@
+{
+  "e": "20260701",
+  "policyID": "1",
+  "gatewayID": "7",
+  "policyVersion": "1",
+  "category": "1",
+  "chainID": "31337",
+  "contractAddr": "0x1234567890123456789012345678901234567890",
+  "receiverDigest": "555555"
+}

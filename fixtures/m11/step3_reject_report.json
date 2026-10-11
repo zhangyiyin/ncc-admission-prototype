@@ -1,0 +1,22 @@
+{
+  "label": "step3",
+  "hiddenStateTransition": "36000 -> 54000",
+  "rejected": true,
+  "rejectionLayer": "circuit",
+  "reason": "usedAmountNew exceeds policy limit",
+  "proofGenerated": false,
+  "onChainUpdateAttempted": false,
+  "gatewayExecuted": false,
+  "sourceFixture": "fixtures/m7/update_full_negative_cases/exceeds_limit.json",
+  "circuitCheckCommand": "npx ts-node scripts/m7/check_update_full_circuit.ts",
+  "circuitCheckPassed": true,
+  "privateDemoFacts": {
+    "amount": "18000",
+    "usedAmountOld": "36000",
+    "usedAmountNew": "54000",
+    "limit": "50000",
+    "threshold": "30000",
+    "clauseStatus": "SATISFIED",
+    "overThreshold": true
+  }
+}

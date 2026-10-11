@@ -1,0 +1,19 @@
+{
+  "step1": {
+    "actionContextHash": "16726822477546509466991377177140419518784230878604776032179652413808853592967",
+    "evidenceDigest": "21129496321350327374028981995631338729549049909856336540797605234656295323457",
+    "clauseStatus": "0",
+    "evidenceSalt": "830001",
+    "rClause": "820001",
+    "note": "M6 fixture computes M7-compatible clauseCom, but M6 circuit does not validate the clauseCom formula."
+  },
+  "step2": {
+    "actionContextHash": "4315869565675409410597714873794637014615769132534617272501006141546391006796",
+    "evidenceDigest": "12225198492176664280188807417450089722080781474088027931925573957429091731721",
+    "clauseStatus": "1",
+    "evidenceSalt": "830002",
+    "rClause": "820002",
+    "note": "M6 fixture computes M7-compatible clauseCom, but M6 circuit does not validate the clauseCom formula."
+  },
+  "note": "These values document M7-compatible fixture construction. They are not circuit inputs in M6."
+}

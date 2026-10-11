@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ncc/schemas/anchoring/batch_summary.schema.json",
+  "title": "NCC L2 Batch Anchoring Summary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "batchID",
+    "l2ChainID",
+    "l1ChainID",
+    "admissionContract",
+    "anchorContract",
+    "fromStateRoot",
+    "toStateRoot",
+    "acceptedActionRoot",
+    "nullifierDigest",
+    "stateCommitmentDigest",
+    "count",
+    "firstL2Block",
+    "lastL2Block",
+    "batchStartTime",
+    "batchEndTime",
+    "batchDigest"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "ncc-l2-anchor-batch-summary/v1"
+    },
+    "batchID": {
+      "$ref": "#/$defs/nonNegativeDecimalString"
+    },
+    "l2ChainID": {
+      "$ref": "#/$defs/positiveDecimalString"
+    },
+    "l1ChainID": {
+      "$ref": "#/$defs/positiveDecimalString"
+    },
+    "admissionContract": {
+      "$ref": "#/$defs/evmAddress"
+    },
+    "anchorContract": {
+      "$ref": "#/$defs/evmAddress"
+    },
+    "fromStateRoot": {
+      "$ref": "#/$defs/bn254FieldDecimalString"
+    },
+    "toStateRoot": {
+      "$ref": "#/$defs/bn254FieldDecimalString"
+    },
+    "acceptedActionRoot": {
+      "$ref": "#/$defs/bn254FieldDecimalString"
+    },
+    "nullifierDigest": {
+      "$ref": "#/$defs/bn254FieldDecimalString"
+    },
+    "stateCommitmentDigest": {
+      "$ref": "#/$defs/bn254FieldDecimalString"
+    },
+    "count": {
+      "$ref": "#/$defs/positiveDecimalString"
+    },
+    "firstL2Block": {
+      "$ref": "#/$defs/nonNegativeDecimalString"
+    },
+    "lastL2Block": {
+      "$ref": "#/$defs/nonNegativeDecimalString"
+    },
+    "batchStartTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "batchEndTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "batchDigest": {
+      "$ref": "#/$defs/bn254FieldDecimalString"
+    },
+    "digestAlgorithm": {
+      "const": "poseidon-bn254-field-v1"
+    },
+    "fieldEncoding": {
+      "const": "decimal-string-bn254"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "baselineCommit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{7,40}$"
+        },
+        "architectureCommit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{7,40}$"
+        },
+        "demo": {
+          "type": "string"
+        },
+        "measurement": {
+          "type": "string"
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "forbiddenFieldsExcluded",
+        "containsPlainAmount",
+        "containsOwner",
+        "containsOldStateCommitment",
+        "containsUsedAmount",
+        "containsMerklePaths",
+        "containsUserLevelTag"
+      ],
+      "properties": {
+        "forbiddenFieldsExcluded": {
+          "const": true
+        },
+        "containsPlainAmount": {
+          "const": false
+        },
+        "containsOwner": {
+          "const": false
+        },
+        "containsOldStateCommitment": {
+          "const": false
+        },
+        "containsUsedAmount": {
+          "const": false
+        },
+        "containsMerklePaths": {
+          "const": false
+        },
+        "containsUserLevelTag": {
+          "const": false
+        }
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/initRecord"
+          },
+          {
+            "$ref": "#/$defs/updateRecord"
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "nonNegativeDecimalString": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$"
+    },
+    "positiveDecimalString": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$"
+    },
+    "bn254FieldDecimalString": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$"
+    },
+    "evmAddress": {
+      "type": "string",
+      "pattern": "^0x[0-9a-fA-F]{40}$"
+    },
+    "fieldOrNull": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "initRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "recordIndex",
+        "stateCommitment",
+        "stateRootAfter",
+        "nullifier"
+      ],
+      "properties": {
+        "type": {
+          "const": "init"
+        },
+        "recordIndex": {
+          "$ref": "#/$defs/nonNegativeDecimalString"
+        },
+        "stateCommitment": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        "stateRootAfter": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        "nullifier": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        "rho": {
+          "type": "null"
+        },
+        "actionHash": {
+          "type": "null"
+        },
+        "amountCom": {
+          "type": "null"
+        },
+        "clauseCom": {
+          "type": "null"
+        }
+      }
+    },
+    "updateRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "recordIndex",
+        "rtState",
+        "nullifier",
+        "stateCommitment",
+        "stateRootAfter",
+        "rho",
+        "actionHash",
+        "amountCom",
+        "clauseCom"
+      ],
+      "properties": {
+        "type": {
+          "const": "update"
+        },
+        "recordIndex": {
+          "$ref": "#/$defs/nonNegativeDecimalString"
+        },
+        "rtState": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        "nullifier": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        "stateCommitment": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        "stateRootAfter": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        "rho": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        "actionHash": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        "amountCom": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        },
+        "clauseCom": {
+          "$ref": "#/$defs/bn254FieldDecimalString"
+        }
+      }
+    }
+  }
+}

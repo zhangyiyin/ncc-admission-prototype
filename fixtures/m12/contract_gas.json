@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-07-02T13:24:00.107Z",
+  "network": "Hardhat local EVM",
+  "note": "Admission transaction gas includes verifier call, root checks, nullifier checks, state tree append, and storage writes. verifyProof estimates are shown only for breakdown intuition.",
+  "deployments": {
+    "PoseidonT3": {
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "gasUsed": "2157126"
+    },
+    "InitComplianceStateVerifier": {
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "gasUsed": "445989"
+    },
+    "UpdateComplianceStateVerifier": {
+      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      "gasUsed": "527184"
+    },
+    "RootRegistry": {
+      "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
+      "gasUsed": "284519"
+    },
+    "ComplianceAdmission": {
+      "address": "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      "gasUsed": "1721833"
+    }
+  },
+  "transactions": {
+    "initializeState": {
+      "label": "initializeState",
+      "gasUsed": "758308",
+      "transactionHash": "0xfe7d7180de8d0d12663fce90c8c1a3e5c5f729ee1f0de7f74613aa54d6d0e24a"
+    },
+    "updateStateStep1": {
+      "label": "updateState step1",
+      "gasUsed": "899250",
+      "transactionHash": "0x8aaa23b1c86d4dbdbaceb852b068cf19003e7fa2fc376a4b718951226a3a7d55"
+    },
+    "updateStateStep2": {
+      "label": "updateState step2",
+      "gasUsed": "899262",
+      "transactionHash": "0xfb7f9775d5d0f7bac8bbf65c46df0d77844b1de6c268a50f710a31d2e71193b7"
+    }
+  },
+  "verifierEstimates": {
+    "init": {
+      "label": "init verifier verifyProof",
+      "gas": "250389"
+    },
+    "updateStep1": {
+      "label": "update verifier verifyProof step1",
+      "gas": "279001"
+    },
+    "updateStep2": {
+      "label": "update verifier verifyProof step2",
+      "gas": "279013"
+    }
+  }
+}

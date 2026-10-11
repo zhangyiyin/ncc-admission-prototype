@@ -1,0 +1,308 @@
+{
+  "generatedAt": "2026-10-06T16:52:30.259Z",
+  "circuit": "circuits/update_compliance_state/UpdateComplianceStateFull.circom",
+  "artifact": "build/m7/UpdateComplianceStateFull.r1cs",
+  "circomlibVersion": "2.0.5",
+  "bn254ScalarFieldModulus": "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+  "ranges": {
+    "amount": "0..2^64-1",
+    "usedAmountOld": "0..2^64-1",
+    "usedAmountNew": "0..2^64-1",
+    "limit": "0..2^64-1",
+    "threshold": "0..2^64-1",
+    "txCountOld": "0..2^32-1",
+    "txCountNew": "0..2^32-1"
+  },
+  "comparatorWidths": {
+    "limit": "LessEqThan(64)",
+    "threshold": "LessThan(64)"
+  },
+  "cases": [
+    {
+      "name": "zero_boundary",
+      "meaning": "zero amount is not semantically prohibited by the current circuit",
+      "expectedAccepted": true,
+      "actualAccepted": true,
+      "matched": true,
+      "witnessGeneration": "pass",
+      "witnessCheck": "pass",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "0",
+        "usedAmountNew": "0",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "50000",
+        "threshold": "30000",
+        "clauseStatus": "0"
+      }
+    },
+    {
+      "name": "threshold_minus_1",
+      "meaning": "usedAmountNew < threshold; threshold clause is not crossed",
+      "expectedAccepted": true,
+      "actualAccepted": true,
+      "matched": true,
+      "witnessGeneration": "pass",
+      "witnessCheck": "pass",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "29999",
+        "usedAmountNew": "29999",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "50000",
+        "threshold": "30000",
+        "clauseStatus": "0"
+      }
+    },
+    {
+      "name": "threshold_equal",
+      "meaning": "usedAmountNew = threshold; strict threshold is not crossed",
+      "expectedAccepted": true,
+      "actualAccepted": true,
+      "matched": true,
+      "witnessGeneration": "pass",
+      "witnessCheck": "pass",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "30000",
+        "usedAmountNew": "30000",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "50000",
+        "threshold": "30000",
+        "clauseStatus": "0"
+      }
+    },
+    {
+      "name": "threshold_plus_1",
+      "meaning": "usedAmountNew = threshold + 1; clause must be satisfied",
+      "expectedAccepted": true,
+      "actualAccepted": true,
+      "matched": true,
+      "witnessGeneration": "pass",
+      "witnessCheck": "pass",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "30001",
+        "usedAmountNew": "30001",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "50000",
+        "threshold": "30000",
+        "clauseStatus": "1"
+      }
+    },
+    {
+      "name": "limit_minus_1",
+      "meaning": "usedAmountNew = limit - 1",
+      "expectedAccepted": true,
+      "actualAccepted": true,
+      "matched": true,
+      "witnessGeneration": "pass",
+      "witnessCheck": "pass",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "49999",
+        "usedAmountNew": "49999",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "50000",
+        "threshold": "30000",
+        "clauseStatus": "1"
+      }
+    },
+    {
+      "name": "limit_equal",
+      "meaning": "usedAmountNew = limit; <= limit remains valid",
+      "expectedAccepted": true,
+      "actualAccepted": true,
+      "matched": true,
+      "witnessGeneration": "pass",
+      "witnessCheck": "pass",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "50000",
+        "usedAmountNew": "50000",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "50000",
+        "threshold": "30000",
+        "clauseStatus": "1"
+      }
+    },
+    {
+      "name": "limit_plus_1",
+      "meaning": "usedAmountNew = limit + 1; ordinary path must reject",
+      "expectedAccepted": false,
+      "actualAccepted": false,
+      "matched": true,
+      "witnessGeneration": "rejected",
+      "witnessCheck": "not-run",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "50001",
+        "usedAmountNew": "50001",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "50000",
+        "threshold": "30000",
+        "clauseStatus": "1"
+      }
+    },
+    {
+      "name": "max_u64_legal",
+      "meaning": "2^64-1 is the maximum legal 64-bit value",
+      "expectedAccepted": true,
+      "actualAccepted": true,
+      "matched": true,
+      "witnessGeneration": "pass",
+      "witnessCheck": "pass",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "18446744073709551615",
+        "usedAmountNew": "18446744073709551615",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "18446744073709551615",
+        "threshold": "18446744073709551615",
+        "clauseStatus": "0"
+      }
+    },
+    {
+      "name": "out_of_range_limit_2pow64",
+      "meaning": "limit = 2^64 is a valid BN254 field element but outside the 64-bit policy range",
+      "expectedAccepted": false,
+      "actualAccepted": false,
+      "matched": true,
+      "witnessGeneration": "rejected",
+      "witnessCheck": "not-run",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "0",
+        "usedAmountNew": "0",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "18446744073709551616",
+        "threshold": "18446744073709551615",
+        "clauseStatus": "0"
+      }
+    },
+    {
+      "name": "out_of_range_threshold_2pow64",
+      "meaning": "threshold = 2^64 is a valid BN254 field element but outside the 64-bit policy range",
+      "expectedAccepted": false,
+      "actualAccepted": false,
+      "matched": true,
+      "witnessGeneration": "rejected",
+      "witnessCheck": "not-run",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "0",
+        "usedAmountNew": "0",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "18446744073709551615",
+        "threshold": "18446744073709551616",
+        "clauseStatus": "0"
+      }
+    },
+    {
+      "name": "amount_2pow64",
+      "meaning": "amount and usedAmountNew at 2^64 must not enter the 64-bit integer domain",
+      "expectedAccepted": false,
+      "actualAccepted": false,
+      "matched": true,
+      "witnessGeneration": "rejected",
+      "witnessCheck": "not-run",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "18446744073709551616",
+        "usedAmountNew": "18446744073709551616",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "18446744073709551615",
+        "threshold": "18446744073709551615",
+        "clauseStatus": "1"
+      }
+    },
+    {
+      "name": "u64_addition_overflow_candidate",
+      "meaning": "2^64-1 + 1 must not wrap to zero under ordinary integer semantics",
+      "expectedAccepted": false,
+      "actualAccepted": false,
+      "matched": true,
+      "witnessGeneration": "rejected",
+      "witnessCheck": "not-run",
+      "values": {
+        "usedAmountOld": "18446744073709551615",
+        "amount": "1",
+        "usedAmountNew": "0",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "18446744073709551615",
+        "threshold": "18446744073709551615",
+        "clauseStatus": "0"
+      }
+    },
+    {
+      "name": "bn254_field_wrap_candidate",
+      "meaning": "p-1 + 1 = 0 in Fr, but p-1 must be rejected by the 64-bit usedAmountOld range constraint",
+      "expectedAccepted": false,
+      "actualAccepted": false,
+      "matched": true,
+      "witnessGeneration": "rejected",
+      "witnessCheck": "not-run",
+      "values": {
+        "usedAmountOld": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+        "amount": "1",
+        "usedAmountNew": "0",
+        "txCountOld": "0",
+        "txCountNew": "1",
+        "limit": "18446744073709551615",
+        "threshold": "18446744073709551615",
+        "clauseStatus": "0"
+      }
+    },
+    {
+      "name": "txcount_max_legal",
+      "meaning": "2^32-1 is the maximum legal txCount value",
+      "expectedAccepted": true,
+      "actualAccepted": true,
+      "matched": true,
+      "witnessGeneration": "pass",
+      "witnessCheck": "pass",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "0",
+        "usedAmountNew": "0",
+        "txCountOld": "4294967294",
+        "txCountNew": "4294967295",
+        "limit": "50000",
+        "threshold": "30000",
+        "clauseStatus": "0"
+      }
+    },
+    {
+      "name": "txcount_overflow_candidate",
+      "meaning": "2^32-1 + 1 must not wrap txCount to zero",
+      "expectedAccepted": false,
+      "actualAccepted": false,
+      "matched": true,
+      "witnessGeneration": "rejected",
+      "witnessCheck": "not-run",
+      "values": {
+        "usedAmountOld": "0",
+        "amount": "0",
+        "usedAmountNew": "0",
+        "txCountOld": "4294967295",
+        "txCountNew": "0",
+        "limit": "50000",
+        "threshold": "30000",
+        "clauseStatus": "0"
+      }
+    }
+  ],
+  "allMatched": true
+}

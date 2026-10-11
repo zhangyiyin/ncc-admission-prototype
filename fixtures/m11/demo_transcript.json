@@ -1,0 +1,147 @@
+{
+  "demo": "NCC full local demo",
+  "scenario": "daily stablecoin off-ramp cumulative compliance",
+  "generatedAt": "2026-07-02T09:33:59.387Z",
+  "policy": {
+    "limit": "50000",
+    "threshold": "30000",
+    "clauseType": "1"
+  },
+  "deployment": {
+    "mode": "local hardhat system exercised by scripts/m9/check_admission_contract.ts",
+    "components": [
+      "PoseidonT3",
+      "InitComplianceStateVerifier",
+      "UpdateComplianceStateVerifier",
+      "RootRegistry",
+      "ComplianceAdmission"
+    ],
+    "rootRegistryUsesM2ActiveRoots": true,
+    "complianceAdmissionDepth": "8",
+    "contractAddressesRecordedByM9Checker": false,
+    "note": "The existing M9 checker deploys and exercises the local contracts. M11 records the demo transcript and proof/gateway outcomes without changing M9 contract semantics."
+  },
+  "roots": {
+    "initialStateRoot": "21551820661461729022865262380882070649935529853313286572328683688269863701601",
+    "knownEmptyRoot": "21551820661461729022865262380882070649935529853313286572328683688269863701601",
+    "afterInit": "6184715872336434441857866957448557330732440228231919952177520071042425498083",
+    "afterStep1": "18214468675329363424914426193265284265526863822044876243062858448795993613495",
+    "afterStep2": "9004445721392407617765566758736899121143153381771154831081323089196260973334"
+  },
+  "privacyBoundary": {
+    "publicChainDoesNotExpose": [
+      "identity",
+      "amount",
+      "usedAmount",
+      "clauseStatus",
+      "action context fields",
+      "user-level link tag",
+      "C_old",
+      "owner",
+      "Merkle paths"
+    ],
+    "publicChainStores": [
+      "nullifiers",
+      "commitments",
+      "actionHash",
+      "amountCom",
+      "clauseCom",
+      "rho",
+      "state roots"
+    ]
+  },
+  "steps": [
+    {
+      "type": "setup",
+      "label": "setup",
+      "accepted": true,
+      "activeRoots": {
+        "rootRegAct": "15314274416456918467594581238635567866960612304759687813569077094207327396659",
+        "rootStatusAct": "16665074706283957864118601002474514693688906115588845658646100340009740657212",
+        "rootPolAct": "9644633886754707898698709665364017332104391358390457043791314730297243121738"
+      },
+      "knownEmptyRoot": "21551820661461729022865262380882070649935529853313286572328683688269863701601",
+      "stateTreeDepth": "8"
+    },
+    {
+      "type": "init",
+      "label": "init",
+      "accepted": true,
+      "stateIndex": "0",
+      "newStateRoot": "6184715872336434441857866957448557330732440228231919952177520071042425498083",
+      "N_gen": "17766401949085797926135549035069317269837656481692000435383030373734283992943",
+      "C_gen": "18642456385847559776773798185157556476501869169874141018486943258724472976549",
+      "policyScopeHash": "6644719138175246900961796555768316920309012588551962331046010273977335826156"
+    },
+    {
+      "type": "update",
+      "label": "step1",
+      "hiddenStateTransition": "0 -> 18000",
+      "acceptedByAdmission": true,
+      "acceptedByGateway": true,
+      "publicRecord": {
+        "rho": "12734960571478142793239939966609539292957667552557480174177333018055464002592",
+        "N_old": "14934302190736785102208117273035656483358851212503323996995017720330640038675",
+        "C_new": "7485856653831390384908723730177777619501831971191651667486568338578887580542",
+        "rtState": "6184715872336434441857866957448557330732440228231919952177520071042425498083",
+        "newStateRoot": "18214468675329363424914426193265284265526863822044876243062858448795993613495",
+        "stateIndex": "1",
+        "actionHash": "15431768514139257405190146949538713766171895702271871013370720760190766607703",
+        "amountCom": "4052888969813845085336314589908854524791284491943363627709942801413724245159",
+        "clauseCom": "13675817769420183571413921360343371190282216001608048934971235106962693403857"
+      },
+      "privateDemoFacts": {
+        "amount": "18000",
+        "clauseStatus": "DUMMY",
+        "overThreshold": false
+      }
+    },
+    {
+      "type": "update",
+      "label": "step2",
+      "hiddenStateTransition": "18000 -> 36000",
+      "acceptedByAdmission": true,
+      "acceptedByGateway": true,
+      "publicRecord": {
+        "rho": "19167179697200692285661804443808434675575536330458288699935270006387337649736",
+        "N_old": "8825737093858097162518663024481547741190203876351136303781089647340345102506",
+        "C_new": "2874382034630353336894133450952975223841290626084311208159484806949048523422",
+        "rtState": "18214468675329363424914426193265284265526863822044876243062858448795993613495",
+        "newStateRoot": "9004445721392407617765566758736899121143153381771154831081323089196260973334",
+        "stateIndex": "2",
+        "actionHash": "21718417864773885484144376032692000056052491591600380839884459381005560608895",
+        "amountCom": "6152682687489577387770139482597855173241424913830733204248807161757473009807",
+        "clauseCom": "3416446450593359103395228978728400518363330452116282147308543180073405258441"
+      },
+      "privateDemoFacts": {
+        "amount": "18000",
+        "usedAmountNew": "36000",
+        "threshold": "30000",
+        "clauseStatus": "SATISFIED",
+        "overThreshold": true
+      }
+    },
+    {
+      "type": "update",
+      "label": "step3",
+      "hiddenStateTransition": "36000 -> 54000",
+      "acceptedByAdmission": false,
+      "acceptedByGateway": false,
+      "rejectionLayer": "circuit",
+      "reason": "usedAmountNew exceeds policy limit",
+      "proofGenerated": false,
+      "onChainUpdateAttempted": false,
+      "gatewayExecuted": false,
+      "sourceFixture": "fixtures/m7/update_full_negative_cases/exceeds_limit.json",
+      "privateDemoFacts": {
+        "amount": "18000",
+        "usedAmountOld": "36000",
+        "usedAmountNew": "54000",
+        "limit": "50000",
+        "threshold": "30000",
+        "clauseStatus": "SATISFIED",
+        "overThreshold": true
+      }
+    }
+  ]
+}

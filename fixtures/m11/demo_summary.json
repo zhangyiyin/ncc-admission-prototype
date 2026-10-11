@@ -1,0 +1,34 @@
+{
+  "demo": "NCC full local demo",
+  "status": "pass",
+  "initAccepted": true,
+  "step1AdmissionAccepted": true,
+  "step1GatewayAccepted": true,
+  "step2AdmissionAccepted": true,
+  "step2GatewayAccepted": true,
+  "step3Rejected": true,
+  "step3RejectionLayer": "circuit",
+  "step3ProofGenerated": false,
+  "step3OnChainUpdateAttempted": false,
+  "step3GatewayExecuted": false,
+  "stateRoots": {
+    "initRootEqualsM3AfterCGen": true,
+    "step1RootEqualsM3AfterCAfter18000": true,
+    "step2RootEqualsM3AfterCAfter36000": true,
+    "finalAcceptedStateRoot": "9004445721392407617765566758736899121143153381771154831081323089196260973334"
+  },
+  "privacy": {
+    "publicChainAmountExposed": false,
+    "publicChainUsedAmountExposed": false,
+    "publicChainClauseStatusExposed": false,
+    "userLevelLinkTagExposed": false,
+    "forbiddenPrivateWitnessExposed": false
+  },
+  "commands": {
+    "check_admission_contract": "pass",
+    "check_gateway_execution": "pass",
+    "check_update_full_circuit": "pass",
+    "hardhat compile": "pass"
+  },
+  "readyForM12": true
+}
