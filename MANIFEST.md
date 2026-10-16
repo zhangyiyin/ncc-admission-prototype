@@ -78,6 +78,11 @@ docs/OJCS_MEASUREMENT_REPORT.md
 scripts/ojcs/measure_gateway_ojcs.ts
 ```
 
+### Groth16 calldata-size measurement
+
+- `scripts/ojcs/measure_calldata_size.ts` — ABI-encoded Groth16 proof, public-input, and verifier-call calldata size measurement.
+- `fixtures/ojcs/calldata_size.json` — machine-readable result of the calldata-size measurement.
+
 ### Gas
 
 ```text

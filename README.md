@@ -59,6 +59,31 @@ npx hardhat test
 
 `prepare_regression_compat.py` creates ignored local compatibility outputs required by unchanged regression tests. These generated files are not paper-facing measurements and are not committed.
 
+### Groth16 calldata size
+
+The ABI-encoded proof and verifier-call sizes can be reproduced with:
+
+```bash
+npx ts-node scripts/ojcs/measure_calldata_size.ts
+```
+
+Measured sizes:
+
+| Operation | Proof payload | Public inputs | `verifyProof` calldata |
+| --- | ---: | ---: | ---: |
+| Init | 256 B | 192 B | 452 B |
+| Full Update | 256 B | 320 B | 580 B |
+
+`Proof payload` denotes the ABI encoding of `pA`, `pB`, and `pC` only. `Public inputs` denotes the ABI encoding of `pubSignals`. `verifyProof` calldata includes the 4-byte function selector. JSON artifact/file sizes are not used.
+
+Machine-readable result:
+
+```text
+fixtures/ojcs/calldata_size.json
+```
+
+The Full Update proof payload itself is 256 B; the 580 B value is the complete `verifyProof` calldata, not the proof size.
+
 ## Full local demo
 
 After the proof-dependent inputs above are prepared:
@@ -175,14 +200,6 @@ The L1 digest is delayed audit evidence, not a validity proof and not the real-t
 This prototype does not claim production-ready KYC/AML/source-of-funds validation, production banking settlement, admission/external-execution atomicity, durable or distributed gateway replay protection, malicious-gateway prevention, complete metadata anonymity, proof aggregation or recursion, cross-L2 shared quota, production L2/mainnet performance, or production-scale large-depth witness maintenance.
 
 The deployed local state tree has fixed depth 8. Persistent nullifiers, accepted records, and historical roots grow with accepted actions; pruning and compaction are not implemented.
-
-## Citation / manuscript status
-
-This repository accompanies:
-
-> Yiyin Zhang and Cong Wang, **“Non-Linkable Cumulative Compliance for Regulated Public-Chain Admission.”**
-
-Use the public repository commit hash in the final manuscript artifact statement after the release commit is created.
 
 ## License
 

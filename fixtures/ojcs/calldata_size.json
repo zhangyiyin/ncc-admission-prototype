@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "measurement": "ABI-encoded Groth16 verifier calldata size",
+  "byteCountingConvention": "Byte counts are (hex.length-2)/2 on ABI-encoded hex. proofPayloadBytes=ABI(pA,pB,pC); publicInputBytes=ABI(pubSignals); verifyProofCalldataBytes includes the 4-byte selector. JSON/filesystem sizes are not used.",
+  "fullTxCalldataNote": "Not measured; optional in the requested task.",
+  "operations": {
+    "init": {
+      "operation": "Init",
+      "publicInputCount": 6,
+      "proofPayloadBytes": 256,
+      "publicInputBytes": 192,
+      "verifyProofCalldataBytes": 452,
+      "fullTxCalldataBytes": null,
+      "verifierAbiTypes": [
+        "uint256[2]",
+        "uint256[2][2]",
+        "uint256[2]",
+        "uint256[6]"
+      ],
+      "source": {
+        "proofJson": "run_artifacts/m8/proofs/init/proof.json",
+        "publicSignalsJson": "run_artifacts/m8/proofs/init/public.json",
+        "solidityArgsFixture": "fixtures/m9/init_call.json",
+        "verifierArtifact": "artifacts/contracts/verifiers/InitComplianceStateVerifier.sol/InitComplianceStateVerifier.json"
+      }
+    },
+    "fullUpdate": {
+      "operation": "Full Update",
+      "publicInputCount": 10,
+      "proofPayloadBytes": 256,
+      "publicInputBytes": 320,
+      "verifyProofCalldataBytes": 580,
+      "fullTxCalldataBytes": null,
+      "verifierAbiTypes": [
+        "uint256[2]",
+        "uint256[2][2]",
+        "uint256[2]",
+        "uint256[10]"
+      ],
+      "source": {
+        "proofJson": "run_artifacts/m8/proofs/update_step1/proof.json",
+        "publicSignalsJson": "run_artifacts/m8/proofs/update_step1/public.json",
+        "solidityArgsFixture": "fixtures/m9/update_step1_call.json",
+        "verifierArtifact": "artifacts/contracts/verifiers/UpdateComplianceStateVerifier.sol/UpdateComplianceStateVerifier.json"
+      }
+    }
+  }
+}
